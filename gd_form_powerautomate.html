@@ -443,6 +443,11 @@
             <span class="error-msg">Please enter your name</span>
           </div>
           <div class="form-group">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" id="contactEmail" name="contactEmail" placeholder="your.email@thefreshcollective.com.au" required>
+            <span class="error-msg">Please enter your email address</span>
+          </div>
+          <div class="form-group">
             <label>Department <span class="req">*</span></label>
             <select id="department" name="department" required>
               <option value="">— Select department —</option>
@@ -869,7 +874,7 @@ document.getElementById('gdForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   let valid = true;
 
-  ['contactName','department','projectTitle','draftDue','finalDue','description'].forEach(id => {
+  ['contactName','contactEmail','department','projectTitle','draftDue','finalDue','description'].forEach(id => {
     const el = document.getElementById(id);
     const empty = !el.value.trim();
     setError(el, empty);
@@ -914,7 +919,7 @@ document.getElementById('gdForm').addEventListener('submit', async function(e) {
 
       // Section 1 — Contact & Project
       contactName:   document.getElementById('contactName').value.trim(),
-      contactEmail:  _spPageContextInfo?.userEmail || '',
+      contactEmail:  document.getElementById('contactEmail').value.trim(),
       department:    document.getElementById('department').value,
       venue:         document.querySelector('input[name="venue"]')?.value.trim() || '',
       projectTitle:  document.getElementById('projectTitle').value.trim(),
