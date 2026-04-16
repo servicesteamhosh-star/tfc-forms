@@ -914,6 +914,7 @@ document.getElementById('gdForm').addEventListener('submit', async function(e) {
 
       // Section 1 — Contact & Project
       contactName:   document.getElementById('contactName').value.trim(),
+      contactEmail:  _spPageContextInfo?.userEmail || '',
       department:    document.getElementById('department').value,
       venue:         document.querySelector('input[name="venue"]')?.value.trim() || '',
       projectTitle:  document.getElementById('projectTitle').value.trim(),
